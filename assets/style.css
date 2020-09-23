@@ -1,0 +1,560 @@
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Plotly.js
+- Grid
+- Base Styles
+- Typography
+- Links
+- Buttons
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+/* PLotly.js 
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* plotly.js's modebar's z-index is 1001 by default
+ * https://github.com/plotly/plotly.js/blob/7e4d8ab164258f6bd48be56589dacd9bdd7fded2/src/css/_modebar.scss#L5
+ * In case a dropdown is above the graph, the dropdown's options
+ * will be rendered below the modebar
+ * Increase the select option's z-index
+ */
+
+/* This was actually not quite right -
+   dropdowns were overlapping each other (edited October 26)
+
+.Select {
+    z-index: 1002;
+}*/
+/*
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+// Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+*/
+
+* {
+  font-family: "Open Sans", sans-serif;
+  /*font-size: 1.2vmin;*/
+  font-size: 1.0vmin;
+  font-weight: normal;
+}
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  /*border: 1px solid blue;*/
+  /*padding: 0 20px; */
+  background-color: rgb(40, 40, 40);
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    /*width: 100%;*/
+    padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .container {
+    height: auto;
+    width: 95%; }
+  .column,
+  .columns {
+    /*border: 1px solid red;*/
+    color: white;
+    display: table-row;
+    height: auto;
+  } 
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0.75%;
+    margin-right: 0%;
+  }
+
+  .columns:last-child {
+    margin-left: 0%;
+    margin-right: 0.75%;
+  }
+
+  .box {
+    padding: 5%;
+    margin: 3%;
+    background-color: rgb(20, 20, 20);
+    border: 1px solid grey;
+    font-weight: bold;
+    color: white;
+    height: 82.5vh;
+    
+  }
+
+  .twoboxes {
+    padding: 2.5%;
+    margin: 1.5%;
+    background-color: rgb(20, 20, 20);
+    border: 1px solid grey;
+    font-weight: bold;
+    color: white;
+    height: 40vh;
+  }
+
+  .boxcontent {
+    height: 73vh;
+    overflow: auto;
+    /*border: 1px solid green;*/
+  }
+
+.noscroll { 
+  overflow: hidden;
+}
+
+  .one.column,
+  .one.columns                    { width:  8.208333%; }
+  .two.columns                    { width: 16.416667%; }
+  .three.columns                  { width: 24.625000%;            }
+  .four.columns                   { width: 32.833333%; }
+  .five.columns                   { width: 41.041667%; }
+  .six.columns                    { width: 49.250000%;            }
+  .seven.columns                  { width: 57.458333%; }
+  .eight.columns                  { width: 65.666667%; }
+  .nine.columns                   { width: 73.875000%;          }
+  .ten.columns                    { width: 82.083333%; }
+  .eleven.columns                 { width: 90.291667%; }
+  .twelve.columns                 { width: 98.500000%; margin-left: 0; }
+
+  .one-third.column               { width: 32.833333%; }
+  .two-thirds.column              { width: 65.666667%; }
+
+  .one-half.column                { width: 49.25%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+
+.scrollbar
+{
+  margin-left: 30px;
+  float: left;
+  height: 300px;
+  width: 65px;
+  background: #F5F5F5;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.force-overflow
+{
+  min-height: 450px;
+}
+
+#wrapper
+{
+  text-align: center;
+  width: 500px;
+  margin: auto;
+}
+
+#style-4::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /*font-size: 62.5%; */
+  background-color: rgb(20, 20, 20);
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: white;
+  /*font-size: 1.5vmin; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  /*font-weight: 400;*/
+  /* font-family: "Raleway", sans-serif; /* "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  color: rgb(200, 200, 200); } /* origial = rgb(33, 33, 33) */
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300;
+  font-family: "Raleway"; }
+h1 { font-size: 4.5vmin; line-height: 1.2;  letter-spacing: -.1vmin; margin-bottom: 2vmin; }
+h2 { font-size: 3.6vmin; line-height: 1.25; letter-spacing: -.1vmin; margin-bottom: 1.8vmin; margin-top: 1.8vmin;}
+h3 { font-size: 3.0vmin; line-height: 1.3;  letter-spacing: -.1vmin; margin-bottom: 1.5vmin; margin-top: 1.5vmin;}
+h4 { font-size: 2.6vmin; line-height: 1.35; letter-spacing: -.08vmin; margin-bottom: 1.2vmin; margin-top: 1.2vmin;}
+h5 { font-size: 2.2vmin; line-height: 1.5;  letter-spacing: -.05vmin; margin-bottom: 0.6vmin; margin-top: 0.6vmin;}
+h6 { font-size: 1.8vmin; line-height: 1.6;  letter-spacing: 0; margin-bottom: 0.75vmin; margin-top: 0.75vmin;}
+
+p {
+  font-size: 1.4vmin;
+  font-weight: normal;
+  /*font-family: 'Raleway';*/
+  margin-top: 0.8%; }
+
+.bar {
+  padding: 0.3%;
+  background-color: rgb(20, 20, 20);
+  border: 0.1% solid grey;
+  font-weight: bold;
+  color: white;
+}
+
+
+/* Blockquotes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+blockquote {
+  border-left: 4px lightgrey solid;
+  padding-left: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+}
+
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #1EAEDB; 
+  text-decoration: underline;
+  cursor: pointer;}
+a:hover {
+  color: #0FA0CE; }
+
+/* Images
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+img {
+    max-width: 100%;
+    height: auto;
+    /*width: auto\9; /* ie8 */
+}
+
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: rgb(20, 20, 20);
+  color: white;
+  border: 1px solid grey;
+  border-radius: 0px;
+  box-shadow: none;
+  box-sizing: border-box; 
+  font-family: inherit;
+  font-size: inherit; /*https://stackoverflow.com/questions/6080413/why-doesnt-input-inherit-the-font-from-body*/}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+   }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid rgb(239, 158, 48);
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: 0px; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+table{
+  border-collapse: collapse;
+}
+th{
+  border-bottom: 3px solid #E1E1E1;
+}
+th:not(.CalendarDay),
+td{
+  min-width: 5vmin;
+}
+td:not(.CalendarDay) {
+  padding: 6px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child:not(.CalendarDay),
+td:first-child:not(.CalendarDay) {
+  padding-left: 0; }
+th:last-child:not(.CalendarDay),
+td:last-child:not(.CalendarDay) {
+  padding-right: 0; }
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+button,
+.button {
+  margin-bottom: 0rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 0rem; }
+pre,
+dl,
+figure,
+table,
+form {
+  margin-bottom: 0rem; }
+p,
+ul,
+ol {
+  margin-bottom: 0.75rem; }
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+
+
