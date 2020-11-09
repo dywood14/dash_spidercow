@@ -1,6 +1,8 @@
 # dash_spidercow
  
-SpiderCow is originally developed to fit the developer's personal needs. SpiderCow is designed to provide useful information for Day Traders in the US stock markets. The script is using Dash Plotly to provide its' web services layout with the data that is scrapped from multiple finances/stocks websites. The script also provides preliminary analysis to provide recommened entry and exit price of the given stock based on the stock's last price, current volume in comparison to the 30-day average volume, and news articles' contents. This project is still work in process, thus not perfected in its' algorithms/mechanics, etc.
+SpiderCow is originally developed to fit the developer's personal needs. SpiderCow is designed to provide useful information for Day Traders in the US stock markets. The script is using Dash Plotly to provide its' web services layout with the data that is scrapped from multiple finances/stocks websites via BeautifulSoup and other dependencies. The script also provides preliminary analysis to provide recommened entry and exit price of the given stock based on the stock's last price, current volume in comparison to the 30-day average volume, and news articles' contents. 
+
+The project is not necessarily focused on showing the prowess of visual contents, but to nail down the integrity and accuracy of the data analysis. This project is still work in process, thus not perfected in its' algorithms/mechanics for the stock analysis.
 
 That being said, this repository is only shown to the public for demo purposes only. I do not guarantee the complete accurancy of the infomration provided by this website as the data/information are aggregated from other external sources. I am not responsible for any legal implications and/or losses (financial, property, etc) casued by using the SpiderCow services. If you do choose to use this script, please use the services with caution at your own risks.
 
